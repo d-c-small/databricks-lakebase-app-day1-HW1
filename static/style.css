@@ -1,22 +1,161 @@
+/* ===== Base ===== */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
 }
 
+/* ===== Navbar ===== */
 .navbar-brand {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
+/* ===== Cards ===== */
 .card {
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .07);
+    transition: box-shadow 0.2s ease;
 }
 
+.card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .11);
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/* ===== Table ===== */
 .table td,
 .table th {
     vertical-align: middle;
 }
 
+/* ===== Badges ===== */
 .badge {
-    font-size: 0.9rem;
-    padding: 0.55em 0.75em;
+    font-size: 0.82rem;
+    padding: 0.42em 0.72em;
+    border-radius: 6px;
 }
+
+/* ===== Stats Cards ===== */
+.stats-card {
+    border-left: 4px solid transparent !important;
+    cursor: pointer;
+}
+
+.stats-card.stats-open   { border-left-color: #198754 !important; }
+.stats-card.stats-in-progress { border-left-color: #ffc107 !important; }
+.stats-card.stats-resolved    { border-left-color: #0d6efd !important; }
+
+.stats-number {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stats-icon {
+    font-size: 2rem;
+    opacity: 0.35;
+}
+
+/* ===== Ticket Header ===== */
+.ticket-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+}
+
+.ticket-meta {
+    font-size: 0.88rem;
+    opacity: 0.8;
+}
+
+/* ===== Message Timeline ===== */
+.message-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message-item {
+    position: relative;
+    padding: 0 0 1.25rem 2.6rem;
+}
+
+.message-item:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 0.9rem;
+    top: 2rem;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.message-avatar {
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+.message-bubble {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+}
+
+.message-meta {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-bottom: 0.35rem;
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.empty-state .bi {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+}
+
+/* ===== Forms ===== */
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, .15);
+}
+
+/* ===== Buttons ===== */
+.btn {
+    border-radius: 7px;
+}
+
+/* ===== Alerts ===== */
+.alert {
+    border-radius: 8px;
+    border: none;
+}
+
+/* ===== Filter buttons active state ===== */
+.btn-group .btn.active {
+    font-weight: 600;
+}
+
