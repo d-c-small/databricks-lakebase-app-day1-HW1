@@ -1,58 +1,23 @@
-{% extends "base.html" %}
+<tbody>
 
-{% block title %}
-Support Tickets
-{% endblock %}
+{% for ticket in tickets %}
 
-{% block content %}
+<tr>
 
-<h2>Support Tickets</h2>
+    <td>{{ ticket.ticket_id }}</td>
+    <td>{{ ticket.title }}</td>
+    <td>{{ ticket.status }}</td>
+    <td>{{ ticket.created_by }}</td>
+    <td>{{ ticket.created_at }}</td>
 
-{% if tickets %}
+    <td>
+        <a href="/ticket/{{ ticket.ticket_id }}">
+            View
+        </a>
+    </td>
 
-<table>
+</tr>
 
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Status</th>
-            <th>Created By</th>
-            <th>Created At</th>
-            <th>View</th>
-        </tr>
-    </thead>
+{% endfor %}
 
-    <tbody>
-
-    {% for ticket in tickets %}
-
-        <tr>
-
-            <td>{{ ticket[0] }}</td>
-            <td>{{ ticket[1] }}</td>
-            <td>{{ ticket[2] }}</td>
-            <td>{{ ticket[3] }}</td>
-            <td>{{ ticket[4] }}</td>
-
-            <td>
-                <a href="/ticket/{{ ticket[0] }}">
-                    View
-                </a>
-            </td>
-
-        </tr>
-
-    {% endfor %}
-
-    </tbody>
-
-</table>
-
-{% else %}
-
-<p>No support tickets found.</p>
-
-{% endif %}
-
-{% endblock %}
+</tbody>
