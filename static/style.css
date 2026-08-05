@@ -1,0 +1,22 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 0.55em 0.75em;
+}
