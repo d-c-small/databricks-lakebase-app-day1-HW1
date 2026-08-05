@@ -1,23 +1,134 @@
-<tbody>
+{% extends "base.html" %}
 
-{% for ticket in tickets %}
+{% block title %}
+Support Tickets
+{% endblock %}
 
-<tr>
+{% block content %}
 
-    <td>{{ ticket.ticket_id }}</td>
-    <td>{{ ticket.title }}</td>
-    <td>{{ ticket.status }}</td>
-    <td>{{ ticket.created_by }}</td>
-    <td>{{ ticket.created_at }}</td>
+<div class="card shadow">
 
-    <td>
-        <a href="/ticket/{{ ticket.ticket_id }}">
-            View
-        </a>
-    </td>
+    <div class="card-header">
 
-</tr>
+        <h3 class="mb-0">
+            Support Tickets
+        </h3>
 
-{% endfor %}
+    </div>
 
-</tbody>
+    <div class="card-body">
+
+        {% if tickets %}
+
+        <table class="table table-hover align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Title</th>
+
+                    <th>Status</th>
+
+                    <th>Created By</th>
+
+                    <th>Created</th>
+
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for ticket in tickets %}
+
+                <tr>
+
+                    <td>
+
+                        {{ ticket.ticket_id }}
+
+                    </td>
+
+                    <td>
+
+                        {{ ticket.title }}
+
+                    </td>
+
+                    <td>
+
+                        {% if ticket.status == "open" %}
+
+                            <span class="badge bg-success">
+                                Open
+                            </span>
+
+                        {% elif ticket.status == "in_progress" %}
+
+                            <span class="badge bg-warning text-dark">
+                                In Progress
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-primary">
+                                Resolved
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+
+                        {{ ticket.created_by }}
+
+                    </td>
+
+                    <td>
+
+                        {{ ticket.created_at }}
+
+                    </td>
+
+                    <td>
+
+                        <a
+                            class="btn btn-outline-primary btn-sm"
+                            href="{{ url_for('view_ticket',
+                                             ticket_id=ticket.ticket_id) }}">
+
+                            View
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+            <div class="alert alert-info">
+
+                No support tickets exist.
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
