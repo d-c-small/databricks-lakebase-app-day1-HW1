@@ -2,6 +2,8 @@
 
 An internal support ticketing system built as a Databricks App with **Lakebase** as the operational data store. Built for the Databricks AI Bootcamp — Day 1 Homework Assignment.
 
+**App URL:** https://support-center-7474648537181325.aws.databricksapps.com
+
 ---
 
 ## Features
@@ -28,7 +30,7 @@ Databricks App (Flask + Python)
 │
 ├── app.py          Routes and request handling
 ├── crud.py         SQL data access layer (psycopg3)
-├── lakebase.py     Connection factory — reads URL from env var
+├── lakebase.py     Connection factory — reads URL from a static role password
 ├── config.py       Documents expected environment variables
 │
 ├── Templates/
@@ -127,4 +129,39 @@ The connection URL is stored as a Databricks secret and injected by the `resourc
 - All SQL queries use parameterized inputs — no string interpolation
 - Status values are validated against an allowlist before any write
 - `FLASK_SECRET_KEY` should be set via environment variable in production
+
+---
+
+## Lakebase Tables & Sample Records
+
+<img width="2099" height="565" alt="image" src="https://github.com/user-attachments/assets/0a497754-f35b-49a2-9e5a-8ef3d0a70367" />
+
+<img width="2178" height="603" alt="image" src="https://github.com/user-attachments/assets/cc9cf38c-cc6b-4ec2-bfd2-a3e8ec077666" />
+
+---
+
+## APP Screenshots
+
+<img width="2061" height="761" alt="image" src="https://github.com/user-attachments/assets/d17e8050-4318-4ed1-8de9-de3136100c68" />
+
+<img width="1984" height="717" alt="image" src="https://github.com/user-attachments/assets/c9bfe757-79af-4d58-b502-5aa14ac46373" />
+
+<img width="2025" height="1189" alt="image" src="https://github.com/user-attachments/assets/581aad82-d7ad-4621-8594-0042039e2b0d" />
+
+<img width="2005" height="1064" alt="image" src="https://github.com/user-attachments/assets/17875183-9442-4098-bd96-71ce109f2e3a" />
+
+<img width="2007" height="808" alt="image" src="https://github.com/user-attachments/assets/bbe791fb-1f97-4fe7-a00d-00eb7d0cae8a" />
+
+---
+
+
+
+
+
+
+
+
+
+
+
 
