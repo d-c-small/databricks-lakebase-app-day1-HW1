@@ -29,7 +29,7 @@ All reads and writes go through Lakebase — no hard-coded data.
 Databricks App (Flask + Python)
 │
 ├── app.py          Routes and request handling
-├── crud.py         SQL data access layer (psycopg3)
+├── crud.py         SQL data access layer (psycopg2)
 ├── lakebase.py     Connection factory — reads URL from a static role password
 ├── config.py       Documents expected environment variables
 │
