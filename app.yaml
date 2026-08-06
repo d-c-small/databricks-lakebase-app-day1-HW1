@@ -4,6 +4,6 @@ command:
 
 resources:
   secrets:
-    - scope: database
+    - scope: database2
       key: lakebase-url
       env_var: LAKEBASE_URL

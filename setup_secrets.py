@@ -13,14 +13,14 @@ w = WorkspaceClient()
 
 # w.secrets.create_scope(scope="database")
 w.secrets.put_secret(
-    scope="database",
+    scope="database2",
     key="lakebase-url",
     string_value=getpass.getpass("Paste your Lakebase URL: ")
 )
 
 
 w.secrets.put_acl(
-    scope="database",
+    scope="database2",
     principal="users",
     permission=workspace.AclPermission.READ,
 )
