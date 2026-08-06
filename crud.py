@@ -1,11 +1,10 @@
-from psycopg.rows import dict_row
 from lakebase import get_cursor
 
 _VALID_STATUSES = frozenset({"open", "in_progress", "resolved"})
 
 
 def get_ticket_stats():
-    with get_cursor(row_factory=dict_row) as cur:
+    with get_cursor() as cur:
         cur.execute(
             "SELECT status, COUNT(*) AS count FROM tickets GROUP BY status"
         )
@@ -18,7 +17,7 @@ def get_ticket_stats():
 
 
 def get_all_tickets(status_filter=None):
-    with get_cursor(row_factory=dict_row) as cur:
+    with get_cursor() as cur:
         if status_filter in _VALID_STATUSES:
             cur.execute(
                 """
@@ -41,7 +40,7 @@ def get_all_tickets(status_filter=None):
 
 
 def get_ticket_by_id(ticket_id):
-    with get_cursor(row_factory=dict_row) as cur:
+    with get_cursor() as cur:
         cur.execute(
             """
             SELECT ticket_id, title, status, created_by, created_at
@@ -54,7 +53,7 @@ def get_ticket_by_id(ticket_id):
 
 
 def get_messages_for_ticket(ticket_id):
-    with get_cursor(row_factory=dict_row) as cur:
+    with get_cursor() as cur:
         cur.execute(
             """
             SELECT message_id, ticket_id, message_text, author, created_at
