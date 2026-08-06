@@ -154,14 +154,34 @@ The connection URL is stored as a Databricks secret and injected by the `resourc
 
 ---
 
+## Project Reflections
 
+### Most Difficult Part:
 
+- The most difficult part was figuring out how to navigate the Databricks platform and configure the secrets. I kept running into 500 internal server errors when I was trying to deploy the app. After reviewing the logs and doing some research I finally figured out how to properly set up the static role URL password and store it as a secret within Databricks.
 
+### How does Lakebase differ from storing the data in a traditional analytics table:
 
+- Lakebase differs from a traditional analytics table because it combines the flexibility of an object storage data lake with the speed and structure of a relational database. Core differences include:
+ 
+  1. **Storage Format**: Lakebase uses formats like Parquet or Delta Lake directly on cloud storage. Traditional tables us database engines or static warehouse files.
+  2. **Updates & Deletes**: Lakebase allows fast row-level changes and updates on data lakes. Traditional tables often need heavy batch rewrites for updates.
+  3. **Query Speed**: Lakebase uses smart caching and indexing to run fast queries. Traditional tables rely on built-in speed of a single data warehouse.
+  4. **Flexibility**: Lakebase lets you use many different compute engines on the same data. Traditional tables lock your data into one system.
+ 
+### Features I would add next:
 
+- **User Authentication & Roles** Add login with different permission levels (admin, support agent, regular user) so you can restrict who can update statuses or delete tickets
 
+- **Ticket Assignment** — Allow assigning tickets to specific support agents, with a "My Tickets" view to show only assigned work
 
+- **Priority/Severity Levels** — Add urgent/high/medium/low priority flags to help triage critical issues first
 
+- **Search & Advanced Filtering** — Full-text search across titles and messages, plus filters by date range, author, or assignee
+
+- **File Attachments** — Let users upload screenshots, logs, or documents alongside messages (stored in Lakebase or Unity Catalog volumes)
+
+- **Email Notifications** — Trigger alerts when tickets are assigned, updated, or replied to (could use Databricks workflows)
 
 
 
