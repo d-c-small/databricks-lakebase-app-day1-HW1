@@ -76,7 +76,7 @@ def create_ticket(title, created_by):
             """,
             (title, created_by),
         )
-        return cur.fetchone()[0]
+        return cur.fetchone()["ticket_id"]
 
 
 def add_message_to_ticket(ticket_id, message_text, author):
